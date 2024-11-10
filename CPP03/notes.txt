@@ -1,0 +1,45 @@
+attributes dont get intialized in the decalaration
+you initialze them in constrcutor
+
+The private and public sections are written without braces {}
+
+
+-> constrcutor SET UP OBJECTS WITH intitial values when being created
+-> clapTrap -> a unique name for each instance 
+   * clapTrap 1
+   * clapTrap 2
+
+   at the same time we have to give name
+
+   Reference Parameter (&):
+
+In C++, the & symbol after a type (like std::string&) means that the 
+parameter is a 
+reference to an object rather than a copy.
+When you pass an argument by reference, you’re telling C++ to use the 
+original object directly rather than making a duplicate copy of it.
+(copying takes takes more memory and processing time so referencing is used)
+
+So const std::string& name means:
+
+std::string: The parameter is a string.
+&: The parameter is a reference, not a copy, making it more efficient.
+const: The reference is constant, so the original string passed to the constructor won’t be changed.
+
+public -> functions and variable, should be accessible outside
+These functions (attack, takeDamage, beRepaired) are part of the behavior of the ClapTrap class, meaning you want 
+to be able to call them from outside the class to make the object interact with 
+other objects or perform actions (like attacking or repairing).
+
+If they were private, you wouldn't be able to call them directly from outside the class, which 
+would make them useless in this case.
+
+
+void attack(const std::string& target);
+
+void: This means the function doesn’t return any value (i.e., no result). The function will perform an action (like attacking), but it won’t provide any result back to the caller.
+attack: The function name is attack, which describes the action the ClapTrap object will perform.
+const std::string& target: This is a parameter. It represents the target of the attack, which is a string (probably the name of another ClapTrap object).
+std::string is the type of the target's name.
+& means the target is passed by reference, not by copy, making the function more efficient.
+const means the target's name won’t be modified inside the function. You don’t need to change the target’s name—just use it for display or to identify it.
